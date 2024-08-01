@@ -1,0 +1,19 @@
+
+# Python
+*.pyc
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Exclude credentials
+credentials.json
