@@ -13,7 +13,11 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory 
 from dotenv import load_dotenv, find_dotenv
-from config import OPENAI_KEY
+# st.write(
+#     "Has environment variables been set:",
+#     os.environ["GOOGLE_API_KEY"] == st.secrets['GOOGLE_API_KEY'],
+#     os.environ["OPENAI_KEY"] == st.secrets['OPENAI_KEY'],   
+# )
 
 load_dotenv()
 
@@ -64,7 +68,7 @@ vision_client = initialize_vision_client(GOOGLE_API_KEY)
 def openai(german_text):
     title_template = PromptTemplate(
         input_variables=['topic'],
-        template='Translate to english {topic}'
+        template='Translate into english {topic}'
     )
     llm = OpenAI(api_key=OPENAI_KEY, temperature=0.9)
     title_memory = ConversationBufferMemory(input_key='topic', memory_key='chat_history')
