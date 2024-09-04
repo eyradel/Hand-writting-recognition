@@ -13,17 +13,13 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory 
 from dotenv import load_dotenv, find_dotenv
-# st.write(
-#     "Has environment variables been set:",
-#     os.environ["GOOGLE_API_KEY"] == st.secrets['GOOGLE_API_KEY'],
-#     os.environ["OPENAI_KEY"] == st.secrets['OPENAI_KEY'],   
-# )
-
+OPENAI_KEY = st.secrets["OPENAI_KEY"]
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 load_dotenv()
 
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-OPENAI_KEY = os.getenv("OPENAI_KEY")
+# GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# OPENAI_KEY = os.getenv("OPENAI_KEY")
 def ui():
     st.markdown(
         '<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">',
@@ -51,7 +47,7 @@ def ui():
     st.markdown(
         """
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #4267B2;">
-        <a class="navbar-brand" href="#"  target="_blank">Redox OCR</a>  
+        <a class="navbar-brand" href="#"  target="_blank">Hand Written Text Detector</a>  
         </nav>
     """,
         unsafe_allow_html=True,
@@ -173,7 +169,7 @@ def process_file(file):
         with st.expander("German Text"):
             st.markdown(f"<div class='alert alert-warning' style='color: black;'>{german_text}</div>", unsafe_allow_html=True)
 
-        with st.expander("Openai Translated Text"):
+        with st.expander("Translated Text"):
             openai(german_text=german_text)
     else:
         st.write("No text detected.")
