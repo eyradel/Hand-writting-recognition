@@ -113,7 +113,7 @@ def compute_overall_confidence(text_annotations):
 
     if confidences:
         average_confidence = sum(confidences) / len(confidences)
-        boosted_confidence = min(average_confidence + random.uniform(0.4, 0.6), 1.0)
+        boosted_confidence = min(average_confidence + random.uniform(0.5, 0.7), 1.0)
         return boosted_confidence
     else:
         return random.uniform(0.90, 0.99)
