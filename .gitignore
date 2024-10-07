@@ -14,6 +14,7 @@ Thumbs.db
 
 # Logs
 *.log
-
+.streamlit
+ venv
 # Exclude credentials
 credentials.json
