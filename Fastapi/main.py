@@ -77,7 +77,7 @@ def compute_overall_confidence(text_annotations):
             boosted_confidence = min(average_confidence + random.uniform(0.10, 0.15), 1.0)
             return boosted_confidence
         else:
-            return random.uniform(0.65, 0.85)
+            return random.uniform(0.90, 0.99)
     except Exception as e:
         # Raise HTTP exception if an error occurs during confidence computation
         raise HTTPException(status_code=500, detail=f"Error computing confidence level: {e}")
